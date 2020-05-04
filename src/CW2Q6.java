@@ -213,6 +213,7 @@ public class CW2Q6 {
                 out.print(s + " ");
             }
             out.close();
+            System.out.println("File located in \"output.txt\"");
         } catch (IOException ignored) {
             System.out.println("Error outputting to file");
         }
@@ -268,6 +269,7 @@ public class CW2Q6 {
                 continue;
             } else if (areEqual(sStripped, toUppercase(sStripped))) {
                 // formatting choice: if a word is all capitals, its not necessarily a proper noun
+                commonNouns.add(sStripped);
                 previous = s;
                 continue;
             } else if (!isCapital(sStripped)) {
@@ -292,7 +294,7 @@ public class CW2Q6 {
     public void run() {
         // read in the files to redact from and the initial set of redactable words
         mainText = readInFile("warandpeace.txt");
-        HashSet<String> redactableWords = new HashSet<String>(readInFileStripped("redact.txt"));
+        HashSet<String> redactableWords = new HashSet<String>(readInFileStripped("redact2.txt"));
         // add proper nouns to the HashSet
         redactableWords = addProperNouns(redactableWords, mainText);
         // redact everything in the HashSet of redactable words
